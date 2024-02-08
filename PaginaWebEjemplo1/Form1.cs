@@ -22,10 +22,12 @@ namespace PaginaWebEjemplo1
             string url = comboBox1.Text.ToString();
 
 
-          
-            if (!(url.Contains("http")))
+            //Poner https://
+
+            if (!url.StartsWith("https://"))
             {
-                url = "https//" + url;
+                url = "https://" + url;
+                
             }
            
             webBrowser1.Navigate(new Uri(url));
