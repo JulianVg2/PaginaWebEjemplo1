@@ -30,14 +30,16 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.navegarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BotonIr = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.inicioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.haciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.haciaAdelanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.escribaAquíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.BotonIr = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -59,14 +61,41 @@
             this.haciaAdelanteToolStripMenuItem,
             this.escribaAquíToolStripMenuItem});
             this.navegarToolStripMenuItem.Name = "navegarToolStripMenuItem";
-            this.navegarToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.navegarToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
             this.navegarToolStripMenuItem.Text = "Navegar";
+            // 
+            // inicioToolStripMenuItem1
+            // 
+            this.inicioToolStripMenuItem1.Name = "inicioToolStripMenuItem1";
+            this.inicioToolStripMenuItem1.Size = new System.Drawing.Size(192, 26);
+            this.inicioToolStripMenuItem1.Text = "Inicio";
+            this.inicioToolStripMenuItem1.Click += new System.EventHandler(this.inicioToolStripMenuItem1_Click);
+            // 
+            // haciaToolStripMenuItem
+            // 
+            this.haciaToolStripMenuItem.Name = "haciaToolStripMenuItem";
+            this.haciaToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.haciaToolStripMenuItem.Text = "Hacia atrás";
+            this.haciaToolStripMenuItem.Click += new System.EventHandler(this.haciaToolStripMenuItem_Click);
+            // 
+            // haciaAdelanteToolStripMenuItem
+            // 
+            this.haciaAdelanteToolStripMenuItem.Name = "haciaAdelanteToolStripMenuItem";
+            this.haciaAdelanteToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.haciaAdelanteToolStripMenuItem.Text = "Hacia adelante";
+            this.haciaAdelanteToolStripMenuItem.Click += new System.EventHandler(this.haciaAdelanteToolStripMenuItem_Click);
+            // 
+            // escribaAquíToolStripMenuItem
+            // 
+            this.escribaAquíToolStripMenuItem.Name = "escribaAquíToolStripMenuItem";
+            this.escribaAquíToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.escribaAquíToolStripMenuItem.Text = "Escriba aquí";
             // 
             // BotonIr
             // 
-            this.BotonIr.Location = new System.Drawing.Point(884, 31);
+            this.BotonIr.Location = new System.Drawing.Point(916, 45);
             this.BotonIr.Name = "BotonIr";
-            this.BotonIr.Size = new System.Drawing.Size(168, 45);
+            this.BotonIr.Size = new System.Drawing.Size(168, 99);
             this.BotonIr.TabIndex = 1;
             this.BotonIr.Text = "Ejecutar";
             this.BotonIr.UseVisualStyleBackColor = true;
@@ -80,56 +109,42 @@
             "https://www.mesoamericana.edu.gt",
             "https://github.com",
             "https://www.youtube.com"});
-            this.comboBox1.Location = new System.Drawing.Point(884, 82);
+            this.comboBox1.Location = new System.Drawing.Point(42, 68);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 24);
+            this.comboBox1.Size = new System.Drawing.Size(833, 24);
             this.comboBox1.TabIndex = 2;
             // 
-            // inicioToolStripMenuItem1
+            // webView
             // 
-            this.inicioToolStripMenuItem1.Name = "inicioToolStripMenuItem1";
-            this.inicioToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.inicioToolStripMenuItem1.Text = "Inicio";
-            this.inicioToolStripMenuItem1.Click += new System.EventHandler(this.inicioToolStripMenuItem1_Click);
+            this.webView.AllowExternalDrop = true;
+            this.webView.CreationProperties = null;
+            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView.Location = new System.Drawing.Point(42, 201);
+            this.webView.Name = "webView";
+            this.webView.Size = new System.Drawing.Size(1042, 535);
+            this.webView.Source = new System.Uri("https://www.google.com", System.UriKind.Absolute);
+            this.webView.TabIndex = 4;
+            this.webView.ZoomFactor = 1D;
             // 
-            // haciaToolStripMenuItem
+            // toolStrip1
             // 
-            this.haciaToolStripMenuItem.Name = "haciaToolStripMenuItem";
-            this.haciaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.haciaToolStripMenuItem.Text = "Hacia atrás";
-            this.haciaToolStripMenuItem.Click += new System.EventHandler(this.haciaToolStripMenuItem_Click);
-            // 
-            // haciaAdelanteToolStripMenuItem
-            // 
-            this.haciaAdelanteToolStripMenuItem.Name = "haciaAdelanteToolStripMenuItem";
-            this.haciaAdelanteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.haciaAdelanteToolStripMenuItem.Text = "Hacia adelante";
-            this.haciaAdelanteToolStripMenuItem.Click += new System.EventHandler(this.haciaAdelanteToolStripMenuItem_Click);
-            // 
-            // escribaAquíToolStripMenuItem
-            // 
-            this.escribaAquíToolStripMenuItem.Name = "escribaAquíToolStripMenuItem";
-            this.escribaAquíToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.escribaAquíToolStripMenuItem.Text = "Escriba aquí";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(12, 129);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1083, 598);
-            this.webBrowser1.TabIndex = 3;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1107, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1107, 748);
-            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.webView);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.BotonIr);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -137,6 +152,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,7 +168,8 @@
         private System.Windows.Forms.ToolStripMenuItem haciaAdelanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem escribaAquíToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }
 

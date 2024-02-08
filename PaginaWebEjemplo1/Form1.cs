@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Web.WebView2.Core;
 
 namespace PaginaWebEjemplo1
 {
@@ -15,31 +16,45 @@ namespace PaginaWebEjemplo1
         public Form1()
         {
             InitializeComponent();
+            this.Resize += new System.EventHandler(this.Form_Resize);
+        }
+
+        private void Form_Resize(object sender, EventArgs e)
+        {
+            webView.Size = this.ClientSize - new System.Drawing.Size(webView.Location);
+            BotonIr.Left = this.ClientSize.Width - BotonIr.Width;
+            comboBox1.Width = BotonIr.Left - comboBox1.Left;
         }
 
         private void BotonIr_Click(object sender, EventArgs e)
         {
-            string url = comboBox1.Text.ToString();
+           string url = comboBox1.Text.ToString();
+
+            if (webView != null && webView.CoreWebView2 != null)
+            {
+                if (!(url.Contains(".")))
+                {
+                    url = "https://www.google.com/search?q=" + url;
+
+                }
+                else if (!url.StartsWith("https://"))
+                {
+                    url = "https://" + url;
+                }
+
+                webView.CoreWebView2.Navigate(url);
+            }
+
+
 
 
             //Poner https://
 
-            if (!url.StartsWith("https://"))
-            {
-                url = "https://" + url;
-                
-            }
-           
-            webBrowser1.Navigate(new Uri(url));
+            
 
-            //controlpuntos
+       
 
-            if (!(url.Contains(".")))
-            {
-                url = "https://www.google.com/search?q=" + url;
-
-            }
-            webBrowser1.Navigate(new Uri(url));
+          
 
 
 
@@ -48,23 +63,29 @@ namespace PaginaWebEjemplo1
 
         private void inicioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            webBrowser1.GoHome();
+            webView.CoreWebView2.Navigate("https://www.bing.com");
         }
 
         private void haciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            webBrowser1.GoBack();
+            webView.CoreWebView2.GoBack();
         }
 
         private void haciaAdelanteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            webBrowser1.GoForward();
+            webView.CoreWebView2.GoForward();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
-            webBrowser1.GoHome();
+            
+            
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
     }
 }
