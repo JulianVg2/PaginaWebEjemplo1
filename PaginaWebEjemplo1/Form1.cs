@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.IO;
+
 
 namespace PaginaWebEjemplo1
 {
@@ -43,21 +47,26 @@ namespace PaginaWebEjemplo1
                 }
 
                 webView.CoreWebView2.Navigate(url);
+                //Guardar Texto://
+                Guardar("archivos.txt", comboBox1.Text);
+                comboBox1.Items.Add(url);
+                MessageBox.Show("Dirección guardada");
             }
 
 
 
 
-            //Poner https://
-
-            
-
-       
-
-          
 
 
 
+        }
+
+        private void Guardar (string NombreArchivo, string texto)
+        {
+            FileStream flujo = new FileStream(NombreArchivo, FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(flujo);
+            writer.WriteLine(texto);
+            writer.Close();
 
         }
 
@@ -78,12 +87,35 @@ namespace PaginaWebEjemplo1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBox1.SelectedIndex = 0;
-            
-            
+            comboBox1.SelectedIndex = -1;
+
+            string fileName = @"C:\Users\Usuario\source\repos\PaginaWebEjemplo1\PaginaWebEjemplo1\bin\Debug\archivos.txt";
+
+            FileStream flujo = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader lector = new StreamReader(flujo);
+
+            while (lector.Peek() > -1)
+
+            {
+                string textoleido = lector.ReadLine();
+                comboBox1.Items.Add(textoleido);
+            }
+            lector.Close();
+
+
         }
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

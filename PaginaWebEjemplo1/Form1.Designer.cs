@@ -61,7 +61,7 @@
             this.haciaAdelanteToolStripMenuItem,
             this.escribaAquíToolStripMenuItem});
             this.navegarToolStripMenuItem.Name = "navegarToolStripMenuItem";
-            this.navegarToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
+            this.navegarToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.navegarToolStripMenuItem.Text = "Navegar";
             // 
             // inicioToolStripMenuItem1
@@ -93,9 +93,9 @@
             // 
             // BotonIr
             // 
-            this.BotonIr.Location = new System.Drawing.Point(916, 45);
+            this.BotonIr.Location = new System.Drawing.Point(916, 68);
             this.BotonIr.Name = "BotonIr";
-            this.BotonIr.Size = new System.Drawing.Size(168, 99);
+            this.BotonIr.Size = new System.Drawing.Size(104, 42);
             this.BotonIr.TabIndex = 1;
             this.BotonIr.Text = "Ejecutar";
             this.BotonIr.UseVisualStyleBackColor = true;
@@ -104,15 +104,11 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "https://www.who.int/es",
-            "https://www.mesoamericana.edu.gt",
-            "https://github.com",
-            "https://www.youtube.com"});
             this.comboBox1.Location = new System.Drawing.Point(42, 68);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(833, 24);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // webView
             // 
